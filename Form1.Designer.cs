@@ -104,6 +104,7 @@
             contentBox.Size = new Size(1512, 461);
             contentBox.TabIndex = 6;
             contentBox.Text = "ssh公钥/webshell";
+            contentBox.TextChanged += contentBox_TextChanged;
             // 
             // pathBox
             // 
