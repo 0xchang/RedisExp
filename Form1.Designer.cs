@@ -66,7 +66,7 @@
             addressBox.Name = "addressBox";
             addressBox.Size = new Size(287, 38);
             addressBox.TabIndex = 2;
-            addressBox.Text = "192.168.111.132";
+            addressBox.Text = "192.168.1.1";
             // 
             // portBox
             // 
@@ -142,7 +142,7 @@
             menuStrip1.ImageScalingSize = new Size(32, 32);
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1574, 42);
+            menuStrip1.Size = new Size(1574, 24);
             menuStrip1.TabIndex = 11;
             menuStrip1.Text = "menuStrip1";
             // 
