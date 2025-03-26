@@ -80,7 +80,7 @@
             // 
             expBox.DisplayMember = "1";
             expBox.FormattingEnabled = true;
-            expBox.Items.AddRange(new object[] { "ssh公钥", "webshell", "定时任务反弹shell" });
+            expBox.Items.AddRange(new object[] { "info查询","ssh公钥", "webshell", "定时任务反弹shell" });
             expBox.Location = new Point(32, 69);
             expBox.Name = "expBox";
             expBox.Size = new Size(242, 39);
